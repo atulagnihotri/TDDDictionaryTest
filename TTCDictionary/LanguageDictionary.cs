@@ -53,7 +53,8 @@ namespace TTCDictionary
 
         public IEnumerable<string> Search(string word)
         {
-            throw new NotImplementedException();
+            List<string> searchedlist = (from x in lngDictionary where x.Value.Contains(word) select x.Value).ToList();
+            return searchedlist;
         }
     }
 }
