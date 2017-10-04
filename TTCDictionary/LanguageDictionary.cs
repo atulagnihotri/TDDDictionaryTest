@@ -51,6 +51,11 @@ namespace TTCDictionary
             return true;
         }
 
+        /// <summary>
+        /// Search method finds the word in all languages that start with the `word`
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns>return the searched items</returns>
         public IEnumerable<string> Search(string word)
         {
             List<string> searchedlist = (from x in lngDictionary where x.Value.Contains(word) select x.Value).ToList();
