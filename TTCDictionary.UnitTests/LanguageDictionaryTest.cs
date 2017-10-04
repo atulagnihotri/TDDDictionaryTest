@@ -98,7 +98,35 @@ namespace TTCDictionary.UnitTests
         }
         #endregion
 
-        
+        #region Test cases for searching value in dictionary
+        [Test]
+        public void When_searching_a_word_which_does_exist_should_return_value()
+        {
+            // Arrange.
+            this.lDictionary.Add("English", "en");
+            this.lDictionary.Add("German", "de");
+            // Act.
+            var result = this.lDictionary.Search("en");
+
+            // Assert.
+            Assert.IsTrue(result.Contains("en"));
+        }
+
+        [Test]
+        public void When_searching_a_word_which_does_not_exist_should_return_empty_list()
+        {
+            // Arrange.
+            this.lDictionary.Add("English", "en");
+            this.lDictionary.Add("German", "de");
+            // Act.
+            var result = this.lDictionary.Search("es-ES");
+
+            // Assert.
+            Assert.That(result, Is.Empty);
+            Assert.IsFalse(result.Contains("es-ES"));
+        }
+        #endregion
+
 
         /// <summary>
         /// Dispose all the object to clean up the memory
